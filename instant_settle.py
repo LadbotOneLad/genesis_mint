@@ -3,7 +3,6 @@ import os
 import sys
 from web3 import Web3
 
-# Hardcoded primary wallet address for live cross-chain execution
 TARGET_WALLET = "0x912Ca5fa7E73146E62A48A372f9Fe9517E4b6a11"
 
 NETWORKS = {
@@ -16,10 +15,10 @@ NETWORKS = {
 def main():
     print("==================================================")
     print("    FULL CASH INSTANT SETTLEMENT ENGINE (LIVE)    ")
-    print("=================================================="
+    print("==================================================")
     
     if not Web3.is_address(TARGET_WALLET):
-        print(f"[!] ERROR: Invalid target wallet address configured.")
+        print("[!] ERROR: Invalid target wallet address configured.")
         sys.exit(1)
 
     print(f"[*] Live Target Wallet : {TARGET_WALLET}")
