@@ -1,0 +1,93 @@
+[
+    {
+        "tokenId": 0,
+        "namespace": ".com",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 1,
+        "namespace": ".org",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 2,
+        "namespace": ".net",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 3,
+        "namespace": ".io",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 4,
+        "namespace": ".ai",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 5,
+        "namespace": ".tg",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 6,
+        "namespace": ".xyz",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 7,
+        "namespace": ".gov",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 8,
+        "namespace": ".edu",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 9,
+        "namespace": ".tech",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 10,
+        "namespace": ".crypto",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 11,
+        "namespace": ".eth",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    },
+    {
+        "tokenId": 12,
+        "namespace": ".node",
+        "standard": "ERC-721",
+        "controller": "RobDoe_Sovereign_Core",
+        "status": "minted_on_chain"
+    }
+]
