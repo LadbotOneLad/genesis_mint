@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import os
+import sys
 from web3 import Web3
 
-# Supported networks for instant liquidity routing
 NETWORKS = {
     "Arbitrum": "https://arb1.arbitrum.io/rpc",
     "Optimism": "https://mainnet.optimism.io",
@@ -12,31 +12,32 @@ NETWORKS = {
 
 def main():
     print("==================================================")
-    print("    FULL CASH INSTANT SETTLEMENT ENGINE           ")
+    print("    FULL CASH INSTANT SETTLEMENT ENGINE (LIVE)    ")
     print("==================================================")
-    print("[*] Status: Scanning routes for immediate execution...")
-
+    
     target_address = os.getenv("WALLET_ADDRESS")
     if not target_address or not Web3.is_address(target_address):
-        print("[!] Notice: WALLET_ADDRESS not set. Running in simulation mode.")
-        target_address = "0x0000000000000000000000000000000000000000"
+        print("[!] ERROR: WALLET_ADDRESS environment variable is required for live execution.")
+        print("    No simulations allowed. Set it with:")
+        print("    export WALLET_ADDRESS='0xYourActualWalletAddress'")
+        print("==================================================")
+        sys.exit(1)
 
-    print(f"[*] Settlement Target    : {target_address}")
+    print(f"[*] Live Target Wallet : {target_address}")
     print("-" * 50)
 
     for chain, rpc_url in NETWORKS.items():
         try:
-            w3 = Web3(Web3.HTTPProvider(rpc_url, request_kwargs={'timeout': 4}))
+            w3 = Web3(Web3.HTTPProvider(rpc_url, request_kwargs={'timeout': 5}))
             if w3.is_connected():
-                block = w3.eth.block_number
-                print(f"[+] {chain:<10} : Node Active | Block {block} | Route Ready")
+                balance_wei = w3.eth.get_balance(target_address)
+                balance_eth = w3.from_wei(balance_wei, 'ether')
+                print(f"[+] {chain:<10} : Live Balance -> {balance_eth:.6f} ETH")
             else:
-                print(f"[-] {chain:<10} : Node Unreachable")
+                print(f"[-] {chain:<10} : Connection failed")
         except Exception as e:
-            print(f"[x] {chain:<10} : Error -> {str(e)[:25]}")
+            print(f"[x] {chain:<10} : Error -> {str(e)[:30]}")
 
-    print("==================================================")
-    print("[+] Settlement routing matrix fully operational.")
     print("==================================================")
 
 if __name__ == "__main__":
