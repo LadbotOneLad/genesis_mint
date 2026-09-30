@@ -5,9 +5,9 @@ from web3 import Web3
 
 TARGET_WALLET = "0x912Ca5fa7E73146E62A48A372f9Fe9517E4b6a11"
 
-# Comprehensive EVM Grid
+# Hardened Multi-Provider / Redundant Grid
 NETWORKS = {
-    "Ethereum": "https://rpc.ankr.com/eth",
+    "Ethereum": "https://ethereum.publicnode.com",
     "Arbitrum": "https://arb1.arbitrum.io/rpc",
     "Optimism": "https://mainnet.optimism.io",
     "Base": "https://mainnet.base.org",
