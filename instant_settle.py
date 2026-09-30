@@ -3,6 +3,9 @@ import os
 import sys
 from web3 import Web3
 
+# Hardcoded primary wallet address for live cross-chain execution
+TARGET_WALLET = "0x912Ca5fa7E73146E62A48A372f9Fe9517E4b6a11"
+
 NETWORKS = {
     "Arbitrum": "https://arb1.arbitrum.io/rpc",
     "Optimism": "https://mainnet.optimism.io",
@@ -13,24 +16,20 @@ NETWORKS = {
 def main():
     print("==================================================")
     print("    FULL CASH INSTANT SETTLEMENT ENGINE (LIVE)    ")
-    print("==================================================")
+    print("=================================================="
     
-    target_address = os.getenv("WALLET_ADDRESS")
-    if not target_address or not Web3.is_address(target_address):
-        print("[!] ERROR: WALLET_ADDRESS environment variable is required for live execution.")
-        print("    No simulations allowed. Set it with:")
-        print("    export WALLET_ADDRESS='0xYourActualWalletAddress'")
-        print("==================================================")
+    if not Web3.is_address(TARGET_WALLET):
+        print(f"[!] ERROR: Invalid target wallet address configured.")
         sys.exit(1)
 
-    print(f"[*] Live Target Wallet : {target_address}")
+    print(f"[*] Live Target Wallet : {TARGET_WALLET}")
     print("-" * 50)
 
     for chain, rpc_url in NETWORKS.items():
         try:
             w3 = Web3(Web3.HTTPProvider(rpc_url, request_kwargs={'timeout': 5}))
             if w3.is_connected():
-                balance_wei = w3.eth.get_balance(target_address)
+                balance_wei = w3.eth.get_balance(TARGET_WALLET)
                 balance_eth = w3.from_wei(balance_wei, 'ether')
                 print(f"[+] {chain:<10} : Live Balance -> {balance_eth:.6f} ETH")
             else:
